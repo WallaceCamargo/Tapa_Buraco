@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/angular")
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="~/Scripts/site/Home.js"></script>
+
+<!-- Data Tables -->
+<link href="~/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+<style>
+    .jtable-data-row {
+        font-size: 13px !important;
+    }
+
+    .jtable-row-even {
+        background-color: rgba(240, 240, 240, 0.4) !important;
+    }
+
+    .className {
+        color: #1ab394 !important;
+        font-size: 12px !important;
+    }
+
+    .classNameItem {
+        color: #147a96 !important;
+        font-size: 12px !important;
+    }
+
+    #grid {
+        width: 100% !important;
+    }
+
+    .delete {
+        background: url('../Scripts/jtable/themes/metro/delete.png') no-repeat;
+        width: 16px;
+        height: 16px;
+        opacity: 0.5;
+    }
+
+        .delete:hover {
+            opacity: 1 !important;
+        }
+
+    .release {
+        font-size: 22px !important;
+        width: 18px;
+        height: 18px;
+        opacity: 0.5;
+    }
+
+        .release:hover {
+            opacity: 1 !important;
+        }
+
+    .chosen-container-single .chosen-single {
+        color: #777 !important;
+        width: 180px !important;
+        height: 20px !important;
+        padding: 2px 12px !important;
+        text-transform: uppercase !important;
+    }
+
+
+    .chosen-container .chosen-drop {
+        width: 180px !important;
+        margin-top: 10px !important;
+        text-transform: uppercase !important;
+    }
+
+    .up {
+        color: #00b618;
+    }
+
+    .down {
+        color: #ee0000;
+    }
+
+    .middleBold {
+        vertical-align: middle !important;
+    }
+
+    li.highlighted {
+        background-color: #1AB394 !important;
+        background-image: none !important;
+    }
+
+    .textBoxConsultar {
+        margin-top: -7px !important;
+        font-size: 12px !important;
+        height: 30px !important;
+        position: relative !important;
+        float: left !important;
+        width: 180px !important;
+        text-transform: uppercase;
+    }
+
+    #buttonConsultar {
+        margin-top: -7px !important;
+        font-size: 12px !important;
+        height: 30px !important;
+        position: relative !important;
+        float: right !important;
+    }
+
+    .gridLink {
+        text-decoration: underline !important;
+    }
+
+    .popover {
+        max-width: 600px !important;
+    }
+</style>
+
+<input type="hidden" id="hiddenAdd" />
+<input type="hidden" id="hiddenEdit" />
+<input type="hidden" id="hiddenDelete" />
+
+@*<div id="dialog-ExcluirNavio" title="Navio"></div>*@
+
+@*@foreach (var permission in Model.Permission)
+    {
+        if (permission.Controller == "Activity" && permission.Action == "AddActivityAsync")
+        {
+            <script>
+                $("#hiddenAdd").val("@permission.Action");
+            </script>
+        }
+    }*@
+
+<div id="divDashboard">
+    <div class="row" ng-controller="ActivitiesController">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="col-lg-3"></div>
+                </div>
+                <div class="ibox-content">
+                    <div id="grid" class="grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

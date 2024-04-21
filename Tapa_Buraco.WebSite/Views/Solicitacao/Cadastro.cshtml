@@ -1,0 +1,289 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/angular")
+@model Tapa_Buraco.DTO.Solicitacao
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="~/Scripts/site/SolicitacaoCadastro.js"></script>
+
+<!-- Data Tables -->
+<link href="~/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+<style>
+    .jtable-data-row {
+        font-size: 13px !important;
+    }
+
+    .jtable-row-even {
+        background-color: rgba(240, 240, 240, 0.4) !important;
+    }
+
+    .className {
+        color: #1ab394 !important;
+        font-size: 12px !important;
+    }
+
+    .classNameItem {
+        color: #147a96 !important;
+        font-size: 12px !important;
+    }
+
+    #grid {
+        width: 100% !important;
+    }
+
+    .delete {
+        background: url('../Scripts/jtable/themes/metro/delete.png') no-repeat;
+        width: 16px;
+        height: 16px;
+        opacity: 0.5;
+    }
+
+        .delete:hover {
+            opacity: 1 !important;
+        }
+
+    .release {
+        font-size: 22px !important;
+        width: 18px;
+        height: 18px;
+        opacity: 0.5;
+    }
+
+        .release:hover {
+            opacity: 1 !important;
+        }
+
+
+    .up {
+        color: #00b618;
+    }
+
+    .down {
+        color: #ee0000;
+    }
+
+    .middleBold {
+        vertical-align: middle !important;
+    }
+
+    li.highlighted {
+        background-color: #1AB394 !important;
+        background-image: none !important;
+    }
+
+
+    #buttonConsultar {
+        margin-top: -7px !important;
+        font-size: 12px !important;
+        height: 30px !important;
+        position: relative !important;
+        float: right !important;
+    }
+
+    .gridLink {
+        text-decoration: underline !important;
+    }
+
+    .popover {
+        max-width: 600px !important;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    #file {
+        display: none;
+    }
+
+    .picture {
+        width: 400px;
+        aspect-ratio: 16/11;
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #aaa;
+        border: 2px dashed currentcolor;
+        cursor: pointer;
+        font-family: sans-serif;
+        transition: color 300ms ease-in-out, background 300ms ease-in-out;
+        outline: none;
+        overflow: hidden;
+    }
+
+        .picture:hover {
+            color: #777;
+            background: #ccc;
+        }
+
+        .picture:active {
+            border-color: turquoise;
+            color: turquoise;
+            background: #eee;
+        }
+
+        .picture:focus {
+            color: #777;
+            background: #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+    .picture__img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>
+
+<input type="hidden" id="hiddenCadastroUsuario" />
+<input type="hidden" id="hiddenId" value='@ViewData["id"]' />
+
+<div id="dialog-BuscarUsuarioAD" title="Usuário"></div>
+
+<div id="divDashboard">
+    <div class="row" ng-controller="ActivitiesController">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="col-lg-8">Cadastre a Solicitacão</div>
+                </div>
+                <div class="ibox-content" style="min-height: 280px; HEIGHT: 700PX;">
+                    @*@using (Html.BeginForm("Post", "Solicitacao", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {*@
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>CEP:</label><br />
+                                <input class="form-control" name="CEP" id="textBoxCEP" type="text" placeholder="CEP" maxlength="200" style="width: 200px;display: inline-block;">
+                                <button class="btn btn-outline-success my-2 my-sm-0" onclick="consultaCep()">Buscar</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>CIDADE:</label>
+                                <input class="form-control" name="CIDADE" id="textBoxCidade" type="text" disabled placeholder="CIDADE" maxlength="200" style="width: 513px; text-transform: uppercase;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>LOGRADOURO:</label>
+                                <input class="form-control" name="LOGRADOURO" id="textBoxLogradouro" type="text" disabled placeholder="LOGRADOURO" maxlength="200" style="width: 513px; text-transform: uppercase;">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label>DESCRIÇÃO:</label>
+                                <textarea class="form-control" id="textBoxDSC" maxlength="1000" style="width: 513px; max-width: 513px; max-height: 79px; "></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <br />
+
+
+                                <label>FOTO:</label>
+                                <label class="picture" for="file" tabIndex="0">
+                                    <span class="picture__image"></span>
+                                </label>
+                                <input name="IMG" type="file" id="file" multiple accept="image/*" />
+
+                                @*<input type="submit" value="ENVIAR" class="btn btn-primary" />*@
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>UF:</label>
+                                <input class="form-control" name="ESTADO" id="textBoxUF" type="text" disabled placeholder="UF" maxlength="200" style="width: 513px; text-transform: uppercase;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>BAIRRO:</label>
+                                <input class="form-control" name="BAIRRO" id="textBoxBairro" type="text" disabled placeholder="BAIRRO" maxlength="200" style="width: 513px; text-transform: uppercase;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>PONTO DE REFERENCIA:</label>
+                                <input class="form-control" name="PONTO_REFERENCIA" id="textBoxPontRe" type="text" placeholder="PONTO DE REFERENCIA" maxlength="200" style="width: 513px; text-transform: uppercase;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-lg-6" style="padding-left: 0">
+                                    <label>PRIORIDADE:</label><br />
+                                    <select class="form-control" name="PRIORIDADE" id="textBoxPrioridade" type="text" placeholder="PRIORIDADE" maxlength="200" style="width: 200PX; display: inline-block; text-transform: uppercase;">
+                                        <option value="BAIXA">BAIXA</option>
+                                        <option value="MEDIA" selected>MEDIA</option>
+                                        <option value="ALTA">ALTA</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>DATA PRAZO:</label><br />
+                                    <input class="form-control datepicker" name="DT_PRAZO" id="dataPrazo" type="text" placeholder="DATA PRAZO" maxlength="200" style="width: 220PX; display: inline-block; ">
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        
+                        @* IMPUTS DE ALTERAÇÃO *@
+                        <div class="row" id="campos_datas" style=" display: none; ">
+                            <div class="form-group">
+                                <div class="col-lg-6" style=" padding: 0;">
+                                    <div class="form-group">
+                                        <label>DATA ACATAMENTO:</label><br />
+                                        <input class="form-control datepicker" name="DT_ACATAMENTO" id="dataAcatamento" type="text" placeholder="DATA ACATAMENTO" style="width: 220PX; display: inline-block; ">
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label>DATA AGENDAMENTO:</label><br />
+                                        <input class="form-control datepicker" name="DT_AGENDAMENTO" id="dataAgendamento" type="text" placeholder="DATA AGENDAMENTO" style="width: 220PX; display: inline-block; ">
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label>DATA FINALIZACAO:</label><br />
+                                        <input class="form-control datepicker" name="DT_FINALIZACAO" id="dataFinalizacao" type="text" placeholder="DATA FINALIZACAO" style="width: 220PX; display: inline-block; ">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>DATA FISCALIZACAO:</label><br />
+                                        <input class="form-control datepicker" name="DT_FISCALIZACAO" id="dataFiscalizacao" type="text" placeholder="DATA FISCALIZAÇÃO" maxlength="200" style="width: 220PX; display: inline-block; ">
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label>DATA ATENDIMENTO:</label><br />
+                                        <input class="form-control datepicker" name="DT_ATENDIMENTO" id="dataAtendimento" type="text" placeholder="DATA ATENDIMENTO" style="width: 220PX; display: inline-block; ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* } *@
+                </div>
+                <div class="ibox-content">
+                    <div class="footer-container">
+                        <button type="button" id="buttonAdicionaUsuarioCancelar" class="btn btn-secondary">Cancelar</button>
+                        <button type="button" id="buttonAdicionaSolicitacaoConfirmar" class="btn btn-primary">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

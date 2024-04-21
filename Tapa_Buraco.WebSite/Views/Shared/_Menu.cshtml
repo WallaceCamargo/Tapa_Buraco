@@ -1,0 +1,44 @@
+﻿@using Tapa_Buraco.Util;
+@{
+    var baseController = Html.ViewContext.Controller<Tapa_Buraco.WebSite.Controllers.BaseController>();
+}
+
+<div class="navbar-header">
+    <img src="~/Content/Images/LOGO.jpg" width="165" height="80" />
+</div>
+<div class="navbar-collapse" id="navbar">
+    <ul class="nav nav-pills navbar-left">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Solicitação", "Index", "Solicitacao")</li>
+        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+
+
+        @if (baseController != null)
+        {
+            if (baseController.isLogged)
+            {
+                @*< Colocar quais telas o usuário poderá acessar aqui >*@
+            }
+        }
+    </ul>
+    <ul class="nav navbar-top-links navbar-right">
+        <li style="margin-right:10px;color: #999c9e;font-weight:bold;">
+            Usuário:
+            <span id="loggedUser">
+                @if (baseController != null)
+                {
+                    if (baseController.isLogged)
+                    {
+                        @baseController.UsuarioAutenticacao.USUARIO.NOME.ToString();
+                    }
+                }
+            </span>
+        </li>
+        <li>
+            <a href='@Url.Action("Index", "Login")'>
+                <i class="fa fa-sign-out" id="buttonLogOut"></i> Sair
+            </a>
+        </li>
+    </ul>
+</div>
+

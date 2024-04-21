@@ -1,0 +1,206 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/angular")
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="~/Scripts/site/UsuarioCadastro.js"></script>
+
+<!-- Data Tables -->
+<link href="~/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+<style>
+    .jtable-data-row {
+        font-size: 13px !important;
+    }
+
+    .jtable-row-even {
+        background-color: rgba(240, 240, 240, 0.4) !important;
+    }
+
+    .className {
+        color: #1ab394 !important;
+        font-size: 12px !important;
+    }
+
+    .classNameItem {
+        color: #147a96 !important;
+        font-size: 12px !important;
+    }
+
+    #grid {
+        width: 100% !important;
+    }
+
+    .delete {
+        background: url('../Scripts/jtable/themes/metro/delete.png') no-repeat;
+        width: 16px;
+        height: 16px;
+        opacity: 0.5;
+    }
+
+        .delete:hover {
+            opacity: 1 !important;
+        }
+
+    .release {
+        font-size: 22px !important;
+        width: 18px;
+        height: 18px;
+        opacity: 0.5;
+    }
+
+        .release:hover {
+            opacity: 1 !important;
+        }
+/*
+    .chosen-container-single .chosen-single {
+        width: 340px !important;
+    }
+
+
+    .chosen-container .chosen-drop {
+        width: 340px !important;
+    }*/
+
+    .up {
+        color: #00b618;
+    }
+
+    .down {
+        color: #ee0000;
+    }
+
+    .middleBold {
+        vertical-align: middle !important;
+    }
+
+    li.highlighted {
+        background-color: #1AB394 !important;
+        background-image: none !important;
+    }
+
+    #textBoxConsultarUsuario {
+        margin-top: -7px !important;
+        font-size: 12px !important;
+        height: 30px !important;
+        position: relative !important;
+        float: left !important;
+        width: 270px !important;
+        text-transform: uppercase;
+    }
+
+    #buttonConsultar {
+        margin-top: -7px !important;
+        font-size: 12px !important;
+        height: 30px !important;
+        position: relative !important;
+        float: right !important;
+    }
+
+    .gridLink {
+        text-decoration: underline !important;
+    }
+
+    .popover {
+        max-width: 600px !important;
+    }
+
+    .footer-container{
+        display:flex;
+        justify-content:flex-end;
+        gap: 10px;
+    }
+
+    #selectSetor_chosen {
+        width: 513px !important;
+        background-image: none !important;
+    }
+
+    #conteinerBotaoBuscaAD {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+    }
+
+</style>
+
+<input type="hidden" id="hiddenCadastroUsuario" />
+<input type="hidden" id="hiddenId" value='@ViewData["id"]' />
+
+<div id="dialog-BuscarUsuarioAD" title="Usuário"></div>
+
+<div id="divDashboard">
+    <div class="row" ng-controller="ActivitiesController">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="col-lg-8">Cadastre o usuário</div>
+                </div>
+                <div class="ibox-content" style="min-height:280px;">
+                    @*<div class="row" id="conteinerBotaoBuscaAD">
+                        <button type="button" id="buttonAbrirBuscaUsuarioAD" class="btn btn-primary">Buscar Usuário</button>
+                    </div>*@
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Nome Completo</label>
+                                <input class="form-control" id="textBoxNome" type="text" placeholder="Nome" maxlength="200" style="width: 513px; text-transform: uppercase" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Login</label>
+                                <input class="form-control" id="textBoxLogin" type="text" placeholder="Login" maxlength="200" style="width: 513px;text-transform: lowercase;" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input class="form-control" id="textBoxEmail" type="text" placeholder="E-mail" maxlength="200" style="width: 513px; text-transform: lowercase;" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6" style="padding-left: 0px;">
+                                <div class="form-group" style="margin-bottom:0px;">
+                                    <label>Selecione:</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3" style="padding-left: 0px;">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="radio i-checks">
+                                            <label style="padding-left: 0px;"> <input type="checkbox" id="chkAtivo" name="chkAtivo"> <i></i> Ativo </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="radio i-checks">
+                                            <label> <input type="checkbox" id="chkAdmin" name="chkAdmin"> <i></i> Admin </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="footer-container">
+                        <button type="button" id="buttonAdicionaUsuarioCancelar" class="btn btn-secondary">Cancelar</button>
+                        <button type="button" id="buttonAdicionaUsuarioConfirmar" class="btn btn-primary">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

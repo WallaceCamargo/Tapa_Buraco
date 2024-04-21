@@ -1,0 +1,174 @@
+Received: from RO2P215MB1664.LAMP215.PROD.OUTLOOK.COM (2603:10d6:10:80::12) by
+ SCZP215MB2624.LAMP215.PROD.OUTLOOK.COM with HTTPS; Tue, 6 Feb 2024 12:01:26
+ +0000
+Received: from DM6PR13CA0011.namprd13.prod.outlook.com (2603:10b6:5:bc::24) by
+ RO2P215MB1664.LAMP215.PROD.OUTLOOK.COM (2603:10d6:10:80::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7249.36; Tue, 6 Feb 2024 12:01:22 +0000
+Received: from CH3PEPF0000000C.namprd04.prod.outlook.com
+ (2603:10b6:5:bc:cafe::83) by DM6PR13CA0011.outlook.office365.com
+ (2603:10b6:5:bc::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.17 via Frontend
+ Transport; Tue, 6 Feb 2024 12:01:21 +0000
+Authentication-Results: spf=pass (sender IP is 187.60.18.203)
+ smtp.mailfrom=ecoportosantos.com.br; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ecoportosantos.com.br;
+Received-SPF: Pass (protection.outlook.com: domain of ecoportosantos.com.br
+ designates 187.60.18.203 as permitted sender)
+ receiver=protection.outlook.com; client-ip=187.60.18.203;
+ helo=mail.ecorodovias.com.br; pr=C
+Received: from mail.ecorodovias.com.br (187.60.18.203) by
+ CH3PEPF0000000C.mail.protection.outlook.com (10.167.244.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.7249.19 via Frontend Transport; Tue, 6 Feb 2024 12:01:21 +0000
+Received: from SRV0325.ecoporto.ECORODOVIAS.CORP (10.1.51.48) by
+ SRV0325.ecoporto.ecorodovias.corp (10.1.51.48) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1779.2; Tue, 6 Feb 2024 09:01:05 -0300
+Received: from SRV0290 (10.1.51.13) by SRV0325.ECOPORTO.ECORODOVIAS.CORP
+ (10.1.51.48) with Microsoft SMTP Server (version=TLS1_0,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.1.1779.2 via Frontend
+ Transport; Tue, 6 Feb 2024 09:01:05 -0300
+From: =?utf-8?Q?=5BSistema_Comiss=C3=B5es=5D_=2D_Tecondi_Termares?=
+	<comissoes@ecoportosantos.com.br>
+To: <T_Matheus.Costa@ecoportosantos.com.br>
+CC: <t_rafael.silva@ecoportosantos.com.br>
+Date: Tue, 6 Feb 2024 09:01:11 -0300
+Subject: =?utf-8?B?W0NvbWlzc8O1ZXNdIC0gVGVjb25kaSBUZXJtYXJlczogSW5j?=
+ =?utf-8?B?bHVzw6NvL0FsdGVyYcOnw6NvIENhZGFzdHJhbA==?=
+Content-Type: multipart/alternative;
+	boundary="--boundary_0_6da76fe4-de88-4533-aae8-c9fdf7af503a"
+Message-ID: <afc0768b-0a39-4132-b6d5-8530562a0adb@SRV0325.ecoporto.ECORODOVIAS.CORP>
+Return-Path: comissoes@ecoportosantos.com.br
+X-OrganizationHeadersPreserved: SRV0325.ecoporto.ecorodovias.corp
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Feb 2024 12:01:21.3987
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 4a1885cb-6889-4f05-153e-08dc270b5599
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-Organization-AuthSource: SRV0325.ecoporto.ecorodovias.corp
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 10
+X-CrossPremisesHeadersPromoted: CH3PEPF0000000C.namprd04.prod.outlook.com
+X-CrossPremisesHeadersFiltered: CH3PEPF0000000C.namprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CH3PEPF0000000C:EE_|RO2P215MB1664:EE_|SCZP215MB2624:EE_
+X-OriginatorOrg: ecorodovias.com.br
+X-MS-Office365-Filtering-Correlation-Id: 4a1885cb-6889-4f05-153e-08dc270b5599
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:187.60.18.203;CTRY:BR;LANG:pt;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:mail.ecorodovias.com.br;PTR:smtp2.ecoportosantos.com.br;CAT:NONE;SFS:;DIR:INT;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2024 12:01:21.1174
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a1885cb-6889-4f05-153e-08dc270b5599
+X-MS-Exchange-CrossTenant-Id: bf7db00b-6dcc-41f4-8148-8653bb3d6537
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bf7db00b-6dcc-41f4-8148-8653bb3d6537;Ip=[187.60.18.203];Helo=[mail.ecorodovias.com.br]
+X-MS-Exchange-CrossTenant-AuthSource: SRV0325.ecoporto.ecorodovias.corp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: RO2P215MB1664
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:05.6983996
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7249.035
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	ul/9RRuLYpICUms4pVX0DrHFiSmp76XG34CoCg0rNnv/q18tOUPT4uJEbHmJ7xrNw3TFP9iRh07ra7eHFLp0Owqv2LAz2XZUOrfi0tGFQV/dUhqYwCAe82z3ArQFZZYMEDqpuvWd0osOe2GFpI57YZvIeK1vgbko31aDYudOYktk545Rbb/t8B864tzwtyNRQbVH40KXhQ3DNWbS9mqN/Huejn8ypWzUDpm3b+zilIahfEiF//QCO1zvKMSAKSxSthN6IrXJ9R+LZfnLvRE3unu68kAUvEn0VTeVVjjXQAvtA9eeKI/xopPHiPd7eRQgqO2f8yAmm52CVcgkUTqKFX0IHJqmNEqkSwNRV9rPBq0RQwRK39FFiWvPQrtBprQJxvsv/hUyaPBlk8bESfUrs1pMWFAGQ5D9C8TO140IawB0YqyjH0LyaUBmwCubSYxa03/fibPjMs8/RgwHE/w+JmhuxZmrIoh1+AIooPt5yYPHcPW8EpJKt8ZFZJzV/x8KbAcD8ngdk54+Z3M1UWtdRfNKN/46kC5gneQKnnKq0hZZKql/ed/10YbLto1wCmJqqWXaUrZXUtgFtRJpY8xgiLCjkrFR4vnKzEo00MjX7D64Q3Z5CquLYsPCvdBB1oP/FMiQjRgcWISfMYd0AYrXVU94l9/6q1xhVr960hXr7cXmP0snjLitIAGeuhA/Ng1YCRULDYESVppIMGyGaJuu1oNx8X7hbpX9G6OD0Mlf+NjACkwxO6Vb0zaXITlIXpd12Y6tEVewS5UOPf71kRDIrg==
+MIME-Version: 1.0
+
+----boundary_0_6da76fe4-de88-4533-aae8-c9fdf7af503a
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+PGh0bWw+DQo8aGVhZD4NCjx0aXRsZT5Db21pc3PDtWVzPC90aXRsZT4NCjwvaGVhZD4N
+Cjxib2R5IG1hcmdpbndpZHRoPSIwIiBtYXJnaW5oZWlnaHQ9IjAiIGxlZnRtYXJnaW49
+IjAiIHRvcG1hcmdpbj0iMCIgYm90dG9tbWFyZ2luPSIwIiByaWdodG1hcmdpbj0iMCIg
+IGJnQ29sb3I9IiNmM2YzZjMiPg0KDQo8dGFibGUgY2VsbHBhZGRpbmc9IjAiIGNlbGxz
+cGFjaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJ3aWR0aDoxMDAlIiAgYWxpZ249ImNl
+bnRlciI+DQoJPHRyPg0KCQk8dGQ+DQoJCQk8dGFibGUgY2VsbHBhZGRpbmc9IjAiIGJv
+cmRlcj0iMCIgY2VsbHNwYWNpbmc9IjAiIGJvcmRlcj0iMCIgd2lkdGg9IjcwMHB4IiBh
+bGlnbj0iY2VudGVyIiBzdHlsZT0iZm9udC1mYW1pbHk6IFZlcmRhbmE7IGZvbnQtc2l6
+ZTogMTJweDtsaW5lLWhlaWdodDoxNjAlIj4NCgkJCQk8dHI+DQoJCQkJCTx0ZD4NCiAg
+ICAgICAgICAgICAgICAgICAgICAgIDx0YWJsZSBjZWxscGFkZGluZz0iMCIgY2VsbHNw
+YWNpbmc9IjAiIGJvcmRlcj0iMCIgd2lkdGg9IjcwMHB4IiBhbGlnbj0iY2VudGVyIiBz
+dHlsZT0iZm9udC1mYW1pbHk6IFZlcmRhbmE7IGZvbnQtc2l6ZTogMTJweDtsaW5lLWhl
+aWdodDoxNjAlIj4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dHI+DQogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD4NCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPSJodHRwOi8vY29taXNzb2VzLmVjb3Bv
+cnRvc2FudG9zLmNvbS5ici90ZW1wbGF0ZXMvbG9nb3MuanBnIiBhbHQ9IlRlY29uZGkg
+LyBUZXJtYXJlcyAvIFRlcm1sb2ciIC8+DQogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIDwvdGQ+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD4N
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwIHN0eWxlPSJiYWNr
+Z3JvdW5kLWNvbG9yOiNmZmZmZmY7IHBhZGRpbmc6MTBweDsgYm9yZGVyOjFweCBzb2xp
+ZCAjZTllOWU5OyBmb250LXNpemU6MThweDsgZm9udC1mYW1pbHk6U2Vnb2UgVUk7IGNv
+bG9yOiAjNjY2NjY2OyB0ZXh0LWFsaWduOmNlbnRlcjsiPlByb2pldG8gQ29taXNzw7Vl
+czwvcD4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD4NCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICA8L3RyPg0KICAgICAgICAgICAgICAgICAgICAg
+ICAgPC90YWJsZT4NCgkJCQkJPC90ZD4NCgkJCQk8L3RyPg0KCQkJDQoJCQkJPHRyPg0K
+CQkJCQk8dGQgYmdjb2xvcj0iI2ZmZmZmZiIgc3R5bGU9InBhZGRpbmc6IDE1cHg7IGNv
+bG9yOiAjNjY2NjY2Ij4NCgkJCQkJCVByZXphZG8oYSkgVXN1w6FyaW8oYSksDQogICAg
+ICAgICAgICAgICAgICAgIDwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0
+ZCBoZWlnaHQ9IjEwcHgiPjwvdGQ+DQoJCQkJPC90cj4NCiAgICAgICAgICAgICAgICA8
+dHI+DQoJCQkJCTx0ZCBiZ2NvbG9yPSIjZmZmZmZmIiBzdHlsZT0icGFkZGluZzogMTVw
+eDsgY29sb3I6ICM2NjY2NjYiPg0KCQkJCQkJTyBVc3XDoXJpbzogdF9tYXRoZXVzY28g
+ZGUgbm9tZTogTWF0aGV1cyBEb3JvcyBDb3N0YTxiciAvPmZvaSBjYWRhc3RyYWRvIGNv
+bSBzdWNlc3NvPGJyIC8+DQogICAgICAgICAgICAgICAgICAgIDwvdGQ+DQoJCQkJPC90
+cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBoZWlnaHQ9IjEwcHgiPjwvdGQ+DQoJCQkJPC90
+cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBiZ2NvbG9yPSIjZmZmZmZmIiBzdHlsZT0icGFk
+ZGluZzogMTVweDsgY29sb3I6ICM2NjY2NjYiPg0KCQkJCQkJT2JyaWdhZG8hDQoJCQkJ
+CTwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBoZWlnaHQ9IjEwcHgi
+PjwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBiZ2NvbG9yPSIjMDAy
+OTUyIiBzdHlsZT0icGFkZGluZzogNXB4OyBjb2xvcjogI2ZmZmZmZiIgYWxpZ249ImNl
+bnRlciI+DQogICAgICAgICAgICAgICAgICAgICAgICAtIFRlY29uZGkgLyBUZXJtYXJl
+cyAvIFRlcm1sb2cgLQ0KCQkJCQk8L3RkPg0KCQkJCTwvdHI+DQoJCQk8L3RhYmxlPg0K
+CQk8L3RkPg0KCTwvdHI+DQo8L3RhYmxlPg0KICAgDQo8L2JvZHk+DQo8L2h0bWw+DQo=
+----boundary_0_6da76fe4-de88-4533-aae8-c9fdf7af503a
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGhlYWQ+DQo8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRl
+eHQvaHRtbDsgY2hhcnNldD11dGYtOCI+PHRpdGxlPkNvbWlzc8O1ZXM8L3RpdGxlPg0KPC9oZWFk
+Pg0KPGJvZHkgbWFyZ2lud2lkdGg9IjAiIG1hcmdpbmhlaWdodD0iMCIgbGVmdG1hcmdpbj0iMCIg
+dG9wbWFyZ2luPSIwIiBib3R0b21tYXJnaW49IjAiIHJpZ2h0bWFyZ2luPSIwIiBiZ2NvbG9yPSIj
+ZjNmM2YzIj4NCg0KPHRhYmxlIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVy
+PSIwIiBzdHlsZT0id2lkdGg6MTAwJSIgYWxpZ249ImNlbnRlciI+DQoJPHRyPg0KCQk8dGQ+DQoJ
+CQk8dGFibGUgY2VsbHBhZGRpbmc9IjAiIGJvcmRlcj0iMCIgY2VsbHNwYWNpbmc9IjAiIGJvcmRl
+cj0iMCIgd2lkdGg9IjcwMHB4IiBhbGlnbj0iY2VudGVyIiBzdHlsZT0iZm9udC1mYW1pbHk6IFZl
+cmRhbmE7IGZvbnQtc2l6ZTogMTJweDtsaW5lLWhlaWdodDoxNjAlIj4NCgkJCQk8dHI+DQoJCQkJ
+CTx0ZD4NCiAgICAgICAgICAgICAgICAgICAgICAgIDx0YWJsZSBjZWxscGFkZGluZz0iMCIgY2Vs
+bHNwYWNpbmc9IjAiIGJvcmRlcj0iMCIgd2lkdGg9IjcwMHB4IiBhbGlnbj0iY2VudGVyIiBzdHls
+ZT0iZm9udC1mYW1pbHk6IFZlcmRhbmE7IGZvbnQtc2l6ZTogMTJweDtsaW5lLWhlaWdodDoxNjAl
+Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dHI+DQogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDx0ZD4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxp
+bWcgc3JjPSJodHRwOi8vY29taXNzb2VzLmVjb3BvcnRvc2FudG9zLmNvbS5ici90ZW1wbGF0ZXMv
+bG9nb3MuanBnIiBhbHQ9IlRlY29uZGkgLyBUZXJtYXJlcyAvIFRlcm1sb2ciPg0KICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICA8L3RkPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICA8dGQ+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cCBzdHlsZT0i
+YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmOyBwYWRkaW5nOjEwcHg7IGJvcmRlcjoxcHggc29saWQg
+I2U5ZTllOTsgZm9udC1zaXplOjE4cHg7IGZvbnQtZmFtaWx5OlNlZ29lIFVJOyBjb2xvcjogIzY2
+NjY2NjsgdGV4dC1hbGlnbjpjZW50ZXI7Ij5Qcm9qZXRvIENvbWlzc8O1ZXM8L3A+DQogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+DQogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgPC90cj4NCiAgICAgICAgICAgICAgICAgICAgICAgIDwvdGFibGU+DQoJCQkJCTwvdGQ+DQoJ
+CQkJPC90cj4NCgkJCQ0KCQkJCTx0cj4NCgkJCQkJPHRkIGJnY29sb3I9IiNmZmZmZmYiIHN0eWxl
+PSJwYWRkaW5nOiAxNXB4OyBjb2xvcjogIzY2NjY2NiI+DQoJCQkJCQlQcmV6YWRvKGEpIFVzdcOh
+cmlvKGEpLA0KICAgICAgICAgICAgICAgICAgICA8L3RkPg0KCQkJCTwvdHI+DQoJCQkJPHRyPg0K
+CQkJCQk8dGQgaGVpZ2h0PSIxMHB4Ij48L3RkPg0KCQkJCTwvdHI+DQogICAgICAgICAgICAgICAg
+PHRyPg0KCQkJCQk8dGQgYmdjb2xvcj0iI2ZmZmZmZiIgc3R5bGU9InBhZGRpbmc6IDE1cHg7IGNv
+bG9yOiAjNjY2NjY2Ij4NCgkJCQkJCU8gVXN1w6FyaW86IHRfbWF0aGV1c2NvIGRlIG5vbWU6IE1h
+dGhldXMgRG9yb3MgQ29zdGE8YnI+Zm9pIGNhZGFzdHJhZG8gY29tIHN1Y2Vzc288YnI+DQogICAg
+ICAgICAgICAgICAgICAgIDwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBoZWln
+aHQ9IjEwcHgiPjwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBiZ2NvbG9yPSIj
+ZmZmZmZmIiBzdHlsZT0icGFkZGluZzogMTVweDsgY29sb3I6ICM2NjY2NjYiPg0KCQkJCQkJT2Jy
+aWdhZG8hDQoJCQkJCTwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBoZWlnaHQ9
+IjEwcHgiPjwvdGQ+DQoJCQkJPC90cj4NCgkJCQk8dHI+DQoJCQkJCTx0ZCBiZ2NvbG9yPSIjMDAy
+OTUyIiBzdHlsZT0icGFkZGluZzogNXB4OyBjb2xvcjogI2ZmZmZmZiIgYWxpZ249ImNlbnRlciI+
+DQogICAgICAgICAgICAgICAgICAgICAgICAtIFRlY29uZGkgLyBUZXJtYXJlcyAvIFRlcm1sb2cg
+LQ0KCQkJCQk8L3RkPg0KCQkJCTwvdHI+DQoJCQk8L3RhYmxlPg0KCQk8L3RkPg0KCTwvdHI+DQo8
+L3RhYmxlPg0KICAgDQo8L2JvZHk+DQo8L2h0bWw+DQo=
+
+----boundary_0_6da76fe4-de88-4533-aae8-c9fdf7af503a--
