@@ -7,7 +7,7 @@
     <img src="~/Content/Images/LOGO.jpg" width="165" height="80" />
 </div>
 <div class="navbar-collapse" id="navbar">
-    <ul class="nav nav-pills navbar-left">
+    <ul class="nav nav-pills navbar-left" style="margin: 16px 0 0 10px;">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
         <li>@Html.ActionLink("Solicitação", "Index", "Solicitacao")</li>
         <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
@@ -23,16 +23,32 @@
     </ul>
     <ul class="nav navbar-top-links navbar-right">
         <li style="margin-right:10px;color: #999c9e;font-weight:bold;">
-            Usuário:
-            <span id="loggedUser">
-                @if (baseController != null)
-                {
-                    if (baseController.isLogged)
-                    {
-                        @baseController.UsuarioAutenticacao.USUARIO.NOME.ToString();
-                    }
-                }
-            </span>
+            <div style="display:flex; flex-direction: column">
+                <div>
+                    Usuário:
+                    <span id="loggedUser">
+                        @if (baseController != null)
+                        {
+                            if (baseController.isLogged)
+                            {
+                                @baseController.UsuarioAutenticacao.USUARIO.NOME.ToString();
+                            }
+                        }
+                    </span>
+                </div>
+                <div>
+                    Perfil:
+                    <span id="loggedUser">
+                        @if (baseController != null)
+                        {
+                            if (baseController.isLogged)
+                            {
+                                @baseController.UsuarioAutenticacao.USUARIO.ADMIN_STRING.ToString();
+                            }
+                        }
+                    </span>
+                </div>
+            </div>
         </li>
         <li>
             <a href='@Url.Action("Index", "Login")'>

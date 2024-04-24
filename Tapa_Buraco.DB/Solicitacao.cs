@@ -79,7 +79,7 @@ namespace Tapa_Buraco.DB
                     SQL.AppendLine("SELECT A.* FROM TB_SOLICITACAO A ");
                     SQL.AppendLine("WHERE ((:NM_USUARIO is null)or(NM_USUARIO = :NM_USUARIO))");
                     SQL.AppendLine("AND A.DT_DELETE IS NULL");
-
+                    
                     var result = await db.Connection.QueryAsync<DTO.Solicitacao>(SQL.ToString(),
                                     new
                                     {
@@ -117,8 +117,8 @@ namespace Tapa_Buraco.DB
                     SQL.Append(" LOGRADOURO, ");
                     SQL.Append(" PONTO_REFERENCIA, ");
                     SQL.Append(" PRIORIDADE, ");
-                    SQL.Append(" DT_PRAZO ");
-                    //SQL.Append(" IMG ");
+                    SQL.Append(" DT_PRAZO, ");
+                    SQL.Append(" NOME_FOTO ");
                     SQL.Append("  ) ");
                     SQL.Append("  VALUES ");
                     SQL.Append("  ( ");
@@ -130,8 +130,8 @@ namespace Tapa_Buraco.DB
                     SQL.Append("  :LOGRADOURO, ");
                     SQL.Append("  :PONTO_REFERENCIA, ");
                     SQL.Append("  :PRIORIDADE, ");
-                    SQL.Append("  :DT_PRAZO ");
-                    //SQL.Append("  :IMG ");
+                    SQL.Append("  :DT_PRAZO, ");
+                    SQL.Append("  :NOME_FOTO ");
                     SQL.Append("  )");
                     #endregion QUERY 
                     objSolicitacao.ID = await GetNewIdSequence();

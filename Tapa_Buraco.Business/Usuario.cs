@@ -18,7 +18,8 @@ namespace Tapa_Buraco.Business
 
             try
             {
-                DTO.Usuario objUsuario = await new DB.Usuario().GetByLogin(login);
+                var hash = Helper.Encrypt(senha);
+                DTO.Usuario objUsuario = await new DB.Usuario().GetByLogin(login, hash);
                 if (objUsuario == null)
                 {
                     msgErro = "ERRO. Login não encontrado.";
@@ -178,7 +179,7 @@ namespace Tapa_Buraco.Business
                 //    return objResponse;
                 //}
                 #endregion
-
+                objUsuario.Item.SENHA = Helper.Encrypt(objUsuario.Item.SENHA);
                 objUsuario.Item = await new DB.Usuario().Save(objUsuario.Item);
                 if (objUsuario.Item == null || objUsuario.Item.ID <= 0)
                 {

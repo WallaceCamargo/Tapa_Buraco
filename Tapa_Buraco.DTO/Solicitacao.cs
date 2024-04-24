@@ -24,8 +24,12 @@ namespace Tapa_Buraco.DTO
         public string STATUS_STRING {
             get
             {
-                if (STATUS == 0) return "AGUARDANDO AVALIAÇÃO";
-                if (STATUS == 1) return "";
+                if (STATUS == 0) return "ABERTA";
+                if (STATUS == 1) return "ACATADA";
+                if (STATUS == 2) return "VISTORIADA";
+                if (STATUS == 3) return "PROGRAMADA";
+                if (STATUS == 4) return "EXECUTADA";
+                if (STATUS == 5) return "FATURADA";
                 else return "";
             }
         }
@@ -101,6 +105,7 @@ namespace Tapa_Buraco.DTO
         public string PRIORIDADE { get; set; }
         public HttpPostedFileBase IMG { get; set; }
         public string IMG_URL { get; set;}
+        public string NOME_FOTO { get; set; }
         public File IMG_file { get; set;}
     }
 

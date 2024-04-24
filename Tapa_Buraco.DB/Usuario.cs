@@ -66,7 +66,7 @@ namespace Tapa_Buraco.DB
             return usuario;
         }
 
-        public async Task<DTO.Usuario> GetByLogin(string login)
+        public async Task<DTO.Usuario> GetByLogin(string login, string senha)
         {
             DTO.Usuario usuario = null;
 
@@ -76,12 +76,13 @@ namespace Tapa_Buraco.DB
                 {
                     StringBuilder SQL = new StringBuilder("");
 
-                    SQL.Append("SELECT * FROM TB_USUARIO USR WHERE LOWER(USR.LOGIN) = LOWER(:login) AND DT_DELETE IS NULL");
+                    SQL.Append("SELECT * FROM TB_USUARIO USR WHERE LOWER(USR.LOGIN) = LOWER(:login) AND USR.SENHA = :SENHA AND DT_DELETE IS NULL");
 
                     var result = await db.Connection.QueryAsync<DTO.Usuario>(SQL.ToString(),
                                     new
                                     {
-                                        Login = string.IsNullOrEmpty(login) ? "" : login
+                                        Login = string.IsNullOrEmpty(login) ? "" : login,
+                                        SENHA = string.IsNullOrEmpty(senha) ? "" : senha
                                     });
                     usuario = result.FirstOrDefault();
                 }
@@ -178,6 +179,7 @@ namespace Tapa_Buraco.DB
                     SQL.Append("    ID , ");
                     SQL.Append("    NOME , ");
                     SQL.Append("    LOGIN , ");
+                    SQL.Append("    SENHA , ");
                     SQL.Append("    EMAIL , ");
                     SQL.Append("    ATIVO, ");
                     SQL.Append("    ADMIN, ");
@@ -188,6 +190,7 @@ namespace Tapa_Buraco.DB
                     SQL.Append("    :ID , ");
                     SQL.Append("    :NOME , ");
                     SQL.Append("    :LOGIN , ");
+                    SQL.Append("    :SENHA , ");
                     SQL.Append("    :EMAIL , ");
                     SQL.Append("    :ATIVO, ");
                     SQL.Append("    :ADMIN, ");

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
+using System.Drawing;
 
 namespace Tapa_Buraco.WebSite.Controllers
 {
@@ -231,45 +232,27 @@ namespace Tapa_Buraco.WebSite.Controllers
         }
 
         [HttpPost]
-        public async System.Threading.Tasks.Task<JsonResult> FileUpload(DTO.Solicitacao solicitacao)
+        public async Task<JsonResult> SalvarImagem(HttpPostedFileBase file)
         {
-            try
+            if (file != null && file.ContentLength > 0)
             {
-                int systemFile = 0;
-                //int.TryParse(ConfigurationManager.AppSettings["WebApi:File:System"], out systemFile);
+                var fileName = Path.GetFileName(file.FileName);
+                var folderPath = Server.MapPath("../font-awesome/img"); // Pasta onde a imagem será salva
 
-                DTO.Request<DTO.Solicitacao> request = new DTO.Request<DTO.Solicitacao>();
-                request.Item = solicitacao;
-                if (solicitacao.IMG != null)
+                if (!Directory.Exists(folderPath))
                 {
-                    var img_file = new DTO.File();
-
-                    var memStream = new MemoryStream();
-                    solicitacao.IMG.InputStream.CopyTo(memStream);
-
-                    img_file.dataArray = memStream.ToArray();
-                    img_file.Extension = System.IO.Path.GetExtension(solicitacao.IMG.FileName).ToLower();
-                    img_file.Name = solicitacao.IMG.FileName.Replace(img_file.Extension, "");
-                    img_file.System = systemFile;
-                    request.Item.IMG_file = img_file;
+                    Directory.CreateDirectory(folderPath); // Crie o diretório se não existir
                 }
 
+                var filePath = Path.Combine(folderPath, fileName);
 
-                request.UsuarioAutenticacao = UsuarioAutenticacao;
-               
-                var model = await webApi.ExecuteAutoPostAsync<DTO.Solicitacao, DTO.Solicitacao>(request, "Solicitacao", "Post");
+                file.SaveAs(filePath); // Salva o arquivo
 
-                var record = model.List.FirstOrDefault();
 
-                return Json(new { Result = "OK", Message = model.Mensagem });
-
-            }
-            catch (Exception error)
-            {
-
-                return Json(new { ID = "", Result = false, Message = error.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { Result = "OK", fileName = fileName, Message = "Sucesso" });
             }
 
+            return Json(new { Result = "ERROR", Message = "erro" });
         }
         private bool ValidaDadosUsuario(ref string msgErro, string nome, string login, string email)
         {

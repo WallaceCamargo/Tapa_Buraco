@@ -5,7 +5,6 @@ $(document).ready(function () {
 
     url_Base_Site = $('#url_Base_Site').data('request-url');
 
-    LoadSelectSetor();
     CarregarUsuario();
 
     $(".actionChange").change(function () {
@@ -46,6 +45,7 @@ function SalvarUsuario() {
             ID: $('#hiddenId').val() > 0 ? $('#hiddenId').val() : 0,
             NOME: $("#textBoxNome").val().toUpperCase(),
             LOGIN: $("#textBoxLogin").val().toLowerCase(),
+            SENHA: $("#textBoxSenha").val(),
             EMAIL: $("#textBoxEmail").val().toLowerCase(),
             ATIVO: ativo,
             ADMIN: admin,
@@ -100,40 +100,16 @@ function ValidarCampos() {
         mensagem += mensagem == "" ? "Email" : ", Email";
     }
 
-    //if (idSetor <= 0) {
-    //    mensagem += mensagem == "" ? "Setor" : ", Setor";
-    //}
-
+    if ($("#textBoxSenha").val() == "" || $("#textBoxSenha").val() == null || $("#textBoxSenha").val() == undefined) {
+        mensagem += mensagem == "" ? "senha" : ", senha";
+    }
+    if ($("#textBoxSenha").val() != $("#textBoxConfSenha").val()) {
+        mensagem += mensagem == "" ? "senha e Confirmar Senha divergentes" : ", senha e Confirmação Senha divergentes";
+    }
     if (mensagem != "")
         mensagemFinal = "Preencha o(s) campo(s): " + mensagem;
 
     return mensagemFinal;
-}
-
-function LoadSelectSetor() {
-
-    $("#selectSetor").append('<option value=' + 0 + '>' + "Selecione um Setor" + '</option>');
-    $('#selectSetor').chosen({ no_results_text: 'Não foi possível encontrar ', allow_single_deselect: true, disable_search_threshold: 100, width: '350px' });
-    $('#selectSetor').trigger("chosen:updated");
-
-    $.ajax({
-        url: '/Setor/GetAll',
-        data: {},
-        success: function (data) {
-
-            if (data.Result == "OK") {
-                $.each(data.Records, function (key, value) {
-                    $("#selectSetor").append('<option value="' + value.ID + '">' + value.NOME + '</option>');
-                });
-            }
-
-            $('#selectSetor').chosen({ no_results_text: 'Não foi possível encontrar ', allow_single_deselect: true, disable_search_threshold: 100, width: '350px' });
-            $('#selectSetor').trigger("chosen:updated");
-        },
-        error: function (data) {
-            ShowMessage(data.Message, 4);
-        },
-    });
 }
 
 function CarregarUsuario() {

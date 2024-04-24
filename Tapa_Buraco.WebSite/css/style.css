@@ -74,13 +74,10 @@ h5 {
   margin-right: 15px;
 }
 .navbar-top-links li a {
-  padding: 28px 5px !important;
+  padding: 19px 5px !important;
   min-height: 50px;
 }
-.navbar-top-links li a {
-  padding: 28px 5px !important;
-  min-height: 50px;
-}
+
 .item_menu{
   padding: 28px 5px !important;
   min-height: 50px;

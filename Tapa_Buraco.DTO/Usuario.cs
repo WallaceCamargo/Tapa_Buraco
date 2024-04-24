@@ -39,9 +39,9 @@ namespace Tapa_Buraco.DTO
             get
             {
                 if (ADMIN == 1)
-                    return "SIM";
+                    return "ADMIN";
                 else
-                    return "NÃO";
+                    return "SOLICITANTE";
             }
         }
 
