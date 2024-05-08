@@ -11,6 +11,10 @@ $(document).ready(function () {
         CarregarGrid();
     });
 
+    if ($("#hiddenPerfil").val() == 0) {
+        $("#textBoxConsulSolicitacao").hide();
+    }
+
 });
 
 
