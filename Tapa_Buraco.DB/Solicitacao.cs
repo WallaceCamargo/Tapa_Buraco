@@ -66,7 +66,7 @@ namespace Tapa_Buraco.DB
             return usuario;
         }
 
-        public async Task<List<DTO.Solicitacao>> GetAll(string nome)
+        public async Task<List<DTO.Solicitacao>> GetAll(string nome, string status, string dt_inicio, string dt_fim, string id_usuario, string perfil_usuario)
         {
             List<DTO.Solicitacao> usuarios = null;
 
@@ -76,14 +76,22 @@ namespace Tapa_Buraco.DB
                 {
                     StringBuilder SQL = new StringBuilder("");
 
-                    SQL.AppendLine("SELECT A.* FROM TB_SOLICITACAO A ");
-                    SQL.AppendLine("WHERE ((:NM_USUARIO is null)or(NM_USUARIO = :NM_USUARIO))");
-                    SQL.AppendLine("AND A.DT_DELETE IS NULL");
-                    
+                    SQL.AppendLine(" SELECT A.* FROM TB_SOLICITACAO A ");
+                    SQL.AppendLine(" WHERE ((:NM_USUARIO is null)or(NM_USUARIO LIKE '%'||:NM_USUARIO||'%')) ");
+                    SQL.AppendLine(" AND ((:STATUS is null)or(STATUS = :STATUS)) ");
+                    SQL.AppendLine(" AND ((:DT_INICIO is null AND :DT_FIM is null)or(TRUNC(DT_REGISTRO) BETWEEN :DT_INICIO AND :DT_FIM)) ");
+                    SQL.AppendLine(" AND A.DT_DELETE IS NULL ");
+                    if (perfil_usuario == "0") {
+                        SQL.AppendLine(" AND ID_USUARIO = :ID_USUARIO ");
+                    }
                     var result = await db.Connection.QueryAsync<DTO.Solicitacao>(SQL.ToString(),
                                     new
                                     {
-                                        NM_USUARIO = string.IsNullOrEmpty(nome) ? "" : nome
+                                        NM_USUARIO = string.IsNullOrEmpty(nome) ? "" : nome,
+                                        ID_USUARIO = string.IsNullOrEmpty(id_usuario) ? "" : id_usuario,
+                                        STATUS = string.IsNullOrEmpty(status) ? "" : status,
+                                        DT_INICIO = string.IsNullOrEmpty(dt_inicio) ? "" : dt_inicio,
+                                        DT_FIM = string.IsNullOrEmpty(dt_fim) ? "" : dt_fim,
                                     });
                     usuarios = result.ToList();
                 }

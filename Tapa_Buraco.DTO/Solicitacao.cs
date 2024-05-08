@@ -34,7 +34,17 @@ namespace Tapa_Buraco.DTO
             }
         }
         public DateTime? DT_REGISTRO { get; set; }
-        public DateTime? DT_DELETE { get; set; }
+        public string DT_REGISTRO_STRING
+        {
+            get
+            {
+                if (DT_REGISTRO != null)
+                    return DT_REGISTRO.ToString();
+                else
+                    return "";
+            }
+}
+public DateTime? DT_DELETE { get; set; }
         public DateTime? DT_ACATAMENTO { get; set; }
         public string DT_ACATAMENTO_STRING
         {

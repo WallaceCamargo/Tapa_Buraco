@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tapa_Buraco.DB
-{
+{ 
     public class Usuario
     {
         public async Task<int> GetNewIdSequence()

@@ -2,7 +2,7 @@
 @{
     var baseController = Html.ViewContext.Controller<Tapa_Buraco.WebSite.Controllers.BaseController>();
 }
-
+<input type="hidden" id="hiddenPerfil" value="@baseController.UsuarioAutenticacao.USUARIO.ADMIN"/>                                                                                                                                                                                     
 <div class="navbar-header">
     <img src="~/Content/Images/LOGO.jpg" width="165" height="80" />
 </div>
@@ -10,8 +10,22 @@
     <ul class="nav nav-pills navbar-left" style="margin: 16px 0 0 10px;">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
         <li>@Html.ActionLink("Solicitação", "Index", "Solicitacao")</li>
-        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+        @*<li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>*@
+        @if (baseController != null)
+        {
+            if (baseController.isLogged)
+            {
+                if (@baseController.UsuarioAutenticacao.USUARIO.ADMIN == 0)
+                {
+                    <li>@Html.ActionLink("Meu Perfil", "Cadastro/" + @baseController.UsuarioAutenticacao.USUARIO.ID.ToString(), "Usuario")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
 
+                }
+            }
+        }
 
         @if (baseController != null)
         {

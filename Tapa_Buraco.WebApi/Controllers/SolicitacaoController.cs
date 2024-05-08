@@ -15,7 +15,7 @@ namespace Tapa_Buraco.WebApi.Controllers
         [AuthorizeAttributeOverride()]
         [HttpGet]
         [Route("GetAll")]
-        public async Task<HttpResponseMessage> GetAll([FromUri] string id_usuario = null, [FromUri] int startIndexPaging = 0, [FromUri] int pageSizePaging = 15)
+        public async Task<HttpResponseMessage> GetAll([FromUri] string nm_solicitante = null, [FromUri] string status = null, [FromUri] string dt_inicio = null, [FromUri] string dt_fim = null, [FromUri] string id_usuario = null, [FromUri] string perfil_usuario = null, [FromUri] int startIndexPaging = 0, [FromUri] int pageSizePaging = 15)
         {
             DTO.Response<DTO.Solicitacao> objResponse = new DTO.Response<DTO.Solicitacao>();
             string caminho = "Solicitacao/GetAll()";
@@ -26,7 +26,7 @@ namespace Tapa_Buraco.WebApi.Controllers
                 try
                 {
                     #region Nlog
-                    string parametros = $"id_usuario = {id_usuario}";
+                    string parametros = $"nm_solicitante = {nm_solicitante}";
                     NLogHelper.InicioRequisição(caminho, parametros);
                     #endregion Nlog                    
                 }
@@ -43,7 +43,7 @@ namespace Tapa_Buraco.WebApi.Controllers
                 }
                 #endregion LOGs
 
-                objResponse = await new Business.Solicitacao().GetAll(id_usuario, startIndexPaging, pageSizePaging);
+                objResponse = await new Business.Solicitacao().GetAll(nm_solicitante, status, dt_inicio, dt_fim, id_usuario, perfil_usuario, startIndexPaging, pageSizePaging);
                 if (objResponse != null && objResponse.Sucesso) 
                 {
                     #region LOGs                

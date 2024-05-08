@@ -6,7 +6,7 @@ $(document).ready(function () {
     url_Base_Site = $('#url_Base_Site').data('request-url');
 
     CarregarSolicitacao();
-    $("#textBoxCEP").mask("99999-999");
+    //$("#textBoxCEP").mask("99999-999");
 
     $('#buttonAdicionaUsuarioCancelar').click(function () {
         if (confirm('Todas as alterações não salvas serão perdidas.\rDeseja continuar mesmo assim?')) {
@@ -20,6 +20,7 @@ $(document).ready(function () {
     });
 
     SalvaFoto();
+
 });
 
 function consultaCep() {
@@ -235,7 +236,7 @@ function PopularCampos(data) {
         $("#campos_datas").show();
         $("#stepProgress").show();
         consultaCep();
-
+        $("#hiddenFotoNome").val(data.Records[0].NOME_FOTO);
         var caminhoDaImagem = '../../font-awesome/img/' + data.Records[0].NOME_FOTO;
         var img = $('<img>').attr('src', caminhoDaImagem);
         $('.picture__image').empty().append(img);
@@ -277,6 +278,16 @@ function PopularCampos(data) {
         }
         ////// fim altera as etapas do progress etapa ///////
 
+        if ($("#hiddenPerfil").val() == 0) {
+            $("#textBoxPrioridade").prop('disabled', true);
+            $("#dataPrazo").prop('disabled', true);
+            $("#dataAcatamento").prop('disabled', true);
+            $("#dataFiscalizacao").prop('disabled', true);
+            $("#dataAgendamento").prop('disabled', true);
+            $("#dataAtendimento").prop('disabled', true);
+            $("#dataFinalizacao").prop('disabled', true);
+        } 
+
     }
 }
 
@@ -314,6 +325,8 @@ function SalvaFoto() {
         }
     });
 };
+
+
 function salvarImagemNoServidor(file) {
     const formData = new FormData();
     formData.append('file', file);

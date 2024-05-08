@@ -145,7 +145,11 @@ function PopularCampos(data) {
         $("#textBoxLogin").val(data.Records[0].LOGIN);
         $("#textBoxEmail").val(data.Records[0].EMAIL);
 
-
+        if ($("#hiddenPerfil").val() == 0) {
+            $("#chkAtivo").prop('disabled', true);
+            $("#chkAdmin").prop('disabled', true);
+            $("#labelSenha").html("Nova Senha");
+        }   
         if (data.Records[0].ATIVO) {
             $("#chkAtivo").parent().addClass("checked");
             $("#chkAtivo").prop('checked', true);

@@ -13,14 +13,14 @@ namespace Tapa_Buraco.Business
 {
     public class Solicitacao
     {
-        
-        public async Task<DTO.Response<DTO.Solicitacao>> GetAll(string id_usuario = null, int startIndexPaging = 0, int pageSizePaging = 15)
+        public async Task<DTO.Response<DTO.Solicitacao>> GetAll(string nm_solicitante = null, string status = null, string dt_inicio = null, string dt_fim = null, string id_usuario = null, string perfil_usuario = null, int startIndexPaging = 0, int pageSizePaging = 15)
         {
             string msgErro = "";
             DTO.Response<DTO.Solicitacao> objResponse = new DTO.Response<DTO.Solicitacao>();
             try
             {
-                List<DTO.Solicitacao> objListSolicitacao = await new DB.Solicitacao().GetAll(id_usuario);
+
+                List<DTO.Solicitacao> objListSolicitacao = await new DB.Solicitacao().GetAll(nm_solicitante, status, dt_inicio, dt_fim, id_usuario, perfil_usuario);
 
                 objResponse.Sucesso = true;
                 objResponse.TotalRows = objListSolicitacao == null ? 0 : objListSolicitacao.Count;

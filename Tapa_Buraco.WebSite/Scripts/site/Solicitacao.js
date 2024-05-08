@@ -17,7 +17,10 @@ $(document).ready(function () {
 function CarregarGrid() {
     $("#grid").LoadGrid({
         Parameters: {
-            id_usuario: $("#textBoxConsulSolicitacao").val(),
+            nm_solicitante: $("#textBoxConsulSolicitacao").val(),
+            status: $("#textBoxConsulStatus").val(),
+            dt_inicio: $("#textBoxConsulDt_inicio").val(),
+            dt_fim: $("#textBoxConsulDt_fim").val(),
         }
     });
 }
@@ -68,9 +71,9 @@ function CriarGrid() {
                 title: 'CEP',
                 width: '8%',
             },
-            PONTO_REFERENCIA: {
+            DT_REGISTRO_STRING: {
                 create: false,
-                title: 'PONTO REFERENCIA',
+                title: 'DT REGISTRO',
                 width: '15%',
             },
             PRIORIDADE: {

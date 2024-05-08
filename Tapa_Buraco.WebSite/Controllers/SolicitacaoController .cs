@@ -33,14 +33,19 @@ namespace Tapa_Buraco.WebSite.Controllers
             return View();
         }
 
-
-        public async Task<JsonResult> GetAll(string id_usuario, int jtStartIndex = 0, int jtPageSize = 20)
+        
+        public async Task<JsonResult> GetAll(string nm_solicitante,string status,string dt_inicio, string dt_fim, int jtStartIndex = 0, int jtPageSize = 20)
         {
             try
             {
                 DTO.ResponseWebApi<DTO.Solicitacao> objResponseWebApiMetodo = null;
                 Dictionary<string, string> parametros = new Dictionary<string, string>();
-                parametros.Add("id_usuario", string.IsNullOrEmpty(id_usuario) ? "" : id_usuario.Trim());
+                parametros.Add("nm_solicitante", string.IsNullOrEmpty(nm_solicitante) ? "" : nm_solicitante.Trim());
+                parametros.Add("status", string.IsNullOrEmpty(status) ? "" : status.Trim());
+                parametros.Add("dt_inicio", string.IsNullOrEmpty(dt_inicio) ? "" : dt_inicio.Trim());
+                parametros.Add("dt_fim", string.IsNullOrEmpty(dt_fim) ? "" : dt_fim.Trim());
+                parametros.Add("id_usuario", UsuarioAutenticacao.USUARIO.ID.ToString().Trim());
+                parametros.Add("perfil_usuario", UsuarioAutenticacao.USUARIO.ADMIN.ToString().Trim());
                 parametros.Add("startIndexPaging", jtStartIndex.ToString().Trim());
                 parametros.Add("pageSizePaging", jtPageSize.ToString().Trim());
 
@@ -236,7 +241,10 @@ namespace Tapa_Buraco.WebSite.Controllers
         {
             if (file != null && file.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(file.FileName);
+                Random rnd = new Random();
+                string extensao = Path.GetExtension(file.FileName);
+
+                var fileName = Path.GetFileName(DateTime.Now.ToString("ddMMyyyy") + rnd.Next(100000,999999) + extensao);
                 var folderPath = Server.MapPath("../font-awesome/img"); // Pasta onde a imagem será salva
 
                 if (!Directory.Exists(folderPath))
